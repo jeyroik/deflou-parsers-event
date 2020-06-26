@@ -68,6 +68,6 @@ class DeflouEventParametersTest extends TestCase
 
         $value = 'Текущий статус теста: $"Текущий статус теста".';
         $this->assertTrue($parser->canParse($value), 'Can not parse string: ' . $value);
-        $this->assertEquals('Текущий статус теста:  is ok', $parser->parse($value));
+        $this->assertEquals('Текущий статус теста: is ok', $parser->parse($value));
     }
 }
