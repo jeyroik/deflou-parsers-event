@@ -49,15 +49,18 @@ class DeflouEventParametersTest extends TestCase
             Parser::FIELD__VALUE => '/\$"(.*?)"/',
             Parser::FIELD__CONDITION => '#',
             Parser::FIELD__PARAMETERS => [
-                'event' => new Activity([
-                    Activity::FIELD__PARAMETERS => [
-                        'test_current_status' => [
-                            'title' => 'Текущий статус теста',
-                            'name' => 'test_current_status',
-                            'value' => 'is ok'
+                'event' => [
+                    'name' => 'event',
+                    'value' => new Activity([
+                        Activity::FIELD__PARAMETERS => [
+                            'test_current_status' => [
+                                'title' => 'Текущий статус теста',
+                                'name' => 'test_current_status',
+                                'value' => 'is ok'
+                            ]
                         ]
-                    ]
-                ])
+                    ])
+                ]
             ]
         ]);
 
@@ -65,6 +68,6 @@ class DeflouEventParametersTest extends TestCase
 
         $value = 'Текущий статус теста: $"Текущий статус теста".';
         $this->assertTrue($parser->canParse($value), 'Can not parse string: ' . $value);
-        $this->assertEquals('Статус теста: is ok', $parser->parse($value));
+        $this->assertEquals('Текущий статус теста:  is ok', $parser->parse($value));
     }
 }

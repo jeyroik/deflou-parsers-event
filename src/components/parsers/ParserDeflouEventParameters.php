@@ -21,12 +21,12 @@ class ParserDeflouEventParameters extends Item implements IParseDispatcher
      */
     public function __invoke($value)
     {
-        preg_match_all('/\$"(.*?)"/', $value, $matches);
         if (isset($this['event'])) {
             /**
              * @var IActivity $event
              */
             $event = $this['event'];
+            preg_match_all('/\$"(.*?)"/', $value, $matches);
             $parameters = $event->getParameters();
             $byTitle = array_column(
                 $parameters,
