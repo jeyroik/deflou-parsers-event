@@ -46,7 +46,7 @@ class DeflouEventParametersTest extends TestCase
     {
         $parser = new Parser([
             Parser::FIELD__CLASS => ParserDeflouEventParameters::class,
-            Parser::FIELD__VALUE => '\$"(.*?)"',
+            Parser::FIELD__VALUE => '/\$"(.*?)"/',
             Parser::FIELD__CONDITION => '#',
             Parser::FIELD__PARAMETERS => [
                 'event' => new Activity([
