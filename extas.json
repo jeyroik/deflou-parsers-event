@@ -1,0 +1,13 @@
+{
+  "name": "deflou/parsers-event",
+  "parsers": [
+    {
+      "name": "deflou_event",
+      "title": "DeFlou event parameters",
+      "description": "Allow to use event parameters in destination fields.",
+      "class": "deflou\\components\\parsers\\ParserDeflouEventParameters",
+      "value": "/\$\"(.*?)\"/",
+      "condition": "#"
+    }
+  ]
+}
